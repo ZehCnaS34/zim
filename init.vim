@@ -15,6 +15,7 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-sleuth.git'
 
+Plugin 'digitaltoad/vim-pug'
 Plugin 'tommcdo/vim-exchange'
 
 Plugin 'airblade/vim-gitgutter'
@@ -61,7 +62,7 @@ syntax enable
 set background=dark
 colorscheme zenburn
 if has('gui_running')
-	set guifont=Fira\ Mono\ 13
+  set guifont=Fira\ Mono\ 13
 endif	
 
 set guioptions-=m
@@ -82,9 +83,9 @@ set dir=~/.tmp
 " ignore some bullshit
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ }
+      \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+      \ 'file': '\v\.(exe|so|dll)$',
+      \ }
 
 if has('nvim')
   let g:python3_host_prog = '/usr/bin/python'
@@ -105,7 +106,7 @@ set statusline+=%y      "filetype
 set statusline+=%=      "left/right separator
 set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
-set statusline+=\ %P    "percent through file
+set statusline+=\P    "percent through file
 
 set laststatus=2
 set cmdheight=2
@@ -125,3 +126,17 @@ end
 
 " playing nice with the terminal
 set term=screen-256color
+
+
+" some typeface introspection
+"nmap <S-_> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+
+
+
