@@ -13,33 +13,36 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-sleuth.git'
+Plugin 'tpope/vim-sleuth.git' " pretty sure this is for better indenting.
 
+Plugin 'majutsushi/tagbar'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'tommcdo/vim-exchange'
-
+Plugin 'honza/vim-snippets'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'L9'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'JuliaLang/julia-vim'
-Plugin 'rust-lang/rust.vim'
-Plugin 'aklt/plantuml-syntax'
-
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
-
 Plugin 'easymotion/vim-easymotion'
-
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'elixir-lang/vim-elixir'
 Plugin 'tomasr/molokai'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'pangloss/vim-javascript'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'benekastah/neomake'
-Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'nanotech/jellybeans.vim'
 Plugin 'jnurmine/Zenburn'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'tpope/vim-fireplace'
+
+
+" language Support
+Plugin 'guns/vim-clojure-static'
+Plugin 'lambdatoast/elm.vim'
+Plugin 'JuliaLang/julia-vim'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'rust-lang/rust.vim'
+Plugin 'aklt/plantuml-syntax'
+Plugin 'pangloss/vim-javascript'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -69,15 +72,14 @@ set guioptions-=m
 set guioptions-=T
 
 
-" tabs
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+" tabs... I like two.
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set smartindent
 set expandtab
 
-
-" fucking swaps
+" less annoying 
 set swapfile
 set dir=~/.tmp
 
