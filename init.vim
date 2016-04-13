@@ -128,7 +128,9 @@ end
 
 
 " playing nice with the terminal
-set term=screen-256color
+if !has("nvim")
+  set term=screen-256color
+end
 
 
 " some typeface introspection
@@ -141,5 +143,8 @@ function! <SID>SynStack()
 endfunc
 
 
+" Procfile
+autocmd BufNewFile,BufReadPost Procfile set filetype=ruby
 
-
+" atomish keybinding for nerdree
+nmap <c-\> :NERDTreeToggle<cr>
