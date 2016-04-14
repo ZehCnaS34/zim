@@ -1,5 +1,22 @@
+" __/\\\\\\\\\\\\\\\__/\\\\\\\\\\\__/\\\\____________/\\\\_        
+"  _\////////////\\\__\/////\\\///__\/\\\\\\________/\\\\\\_       
+"   ___________/\\\/_______\/\\\_____\/\\\//\\\____/\\\//\\\_      
+"    _________/\\\/_________\/\\\_____\/\\\\///\\\/\\\/_\/\\\_     
+"     _______/\\\/___________\/\\\_____\/\\\__\///\\\/___\/\\\_    
+"      _____/\\\/_____________\/\\\_____\/\\\____\///_____\/\\\_   
+"       ___/\\\/_______________\/\\\_____\/\\\_____________\/\\\_  
+"        __/\\\\\\\\\\\\\\\__/\\\\\\\\\\\_\/\\\_____________\/\\\_ 
+"         _\///////////////__\///////////__\///______________\///__
+"
+" My vim configuration
+
+        
+
+
+" Vundle "{{{
 set nocompatible              " be iMproved, required
 filetype off                  " required
+
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -7,33 +24,44 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
+" Plugins "{{{
 Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-rails'
+" Faster Editing and navigation
+Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-sleuth.git' " pretty sure this is for better indenting.
-
-Plugin 'majutsushi/tagbar'
-Plugin 'digitaltoad/vim-pug'
-Plugin 'tommcdo/vim-exchange'
-Plugin 'honza/vim-snippets'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'L9'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tomasr/molokai'
-Plugin 'jiangmiao/auto-pairs'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'benekastah/neomake'
-Plugin 'jnurmine/Zenburn'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'tpope/vim-fireplace'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'tommcdo/vim-exchange'
 
+" git support
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'honza/vim-snippets'
+Plugin 'airblade/vim-gitgutter'
+
+" rails
+Plugin 'tpope/vim-rails'
+
+" web
+Plugin 'digitaltoad/vim-pug'
+
+
+" Themes
+Plugin 'jnurmine/Zenburn'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'jpo/vim-railscasts-theme'
+Plugin 'tomasr/molokai'
+
+" clojure
+Plugin 'bhurlow/vim-parinfer'
+Plugin 'tpope/vim-fireplace'
+Plugin 'kien/rainbow_parentheses.vim'
 
 " language Support
 Plugin 'guns/vim-clojure-static'
@@ -43,6 +71,11 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'rust-lang/rust.vim'
 Plugin 'aklt/plantuml-syntax'
 Plugin 'pangloss/vim-javascript'
+
+
+" build tools
+Plugin 'benekastah/neomake'
+" }}}
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -60,43 +93,43 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 set regexpengine=1
 syntax enable
-
-" style
+" }}}
+" Style "{{{
 set background=dark
-colorscheme zenburn
+colorscheme solarized 
 if has('gui_running')
   set guifont=Fira\ Mono\ 13
 endif	
 
 set guioptions-=m
 set guioptions-=T
-
-
-" tabs... I like two.
+" }}}
+" Editor "{{{
+" Tabs "{{{
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set smartindent
 set expandtab
-
-" less annoying 
+" }}}
+" SwapFiles "{{{
 set swapfile
 set dir=~/.tmp
-
-" ignore some bullshit
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
+" }}}"
+" Ignoring Files "{{{
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*.png,*.jpg
 let g:ctrlp_custom_ignore = {
       \ 'dir':  '\v[\/]\.(git|hg|svn)$',
       \ 'file': '\v\.(exe|so|dll)$',
       \ }
-
+" }}}"
+" NeoVim "{{{
 if has('nvim')
   let g:python3_host_prog = '/usr/bin/python'
   let g:loaded_python3_provider = 1
 end
-
-
-" ui
+" }}}
+" User Interface "{{{
 set so=7
 set statusline=%t
 set statusline=%t       "tail of the filename
@@ -131,8 +164,9 @@ end
 if !has("nvim")
   set term=screen-256color
 end
-
-
+" }}}
+" }}}
+" Utility "{{{
 " some typeface introspection
 "nmap <S-_> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
@@ -141,10 +175,11 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
-
-
+" }}}
+" Misc "{{{
 " Procfile
 autocmd BufNewFile,BufReadPost Procfile set filetype=ruby
 
 " atomish keybinding for nerdree
 nmap <c-\> :NERDTreeToggle<cr>
+" }}}
