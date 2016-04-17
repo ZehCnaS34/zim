@@ -95,11 +95,15 @@ set regexpengine=1
 syntax enable
 " }}}
 " Style "{{{
-set background=dark
+
+set background=light
 colorscheme solarized 
 if has('gui_running')
   set guifont=Fira\ Mono\ 13
 endif	
+
+nmap <f2> :set background=light<cr>
+nmap <f3> :set background=dark<cr>
 
 set guioptions-=m
 set guioptions-=T
