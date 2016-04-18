@@ -48,6 +48,9 @@ Plugin 'airblade/vim-gitgutter'
 " rails
 Plugin 'tpope/vim-rails'
 
+" python
+Plugin 'davidhalter/jedi-vim'
+
 " web
 Plugin 'digitaltoad/vim-pug'
 
