@@ -73,7 +73,8 @@ Plugin 'JuliaLang/julia-vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'rust-lang/rust.vim'
 Plugin 'aklt/plantuml-syntax'
-Plugin 'pangloss/vim-javascript'
+" Plugin 'pangloss/vim-javascript'
+Plugin 'othree/yajs.vim'
 
 
 " build tools
@@ -107,6 +108,8 @@ endif
 
 nmap <f2> :set background=light<cr>
 nmap <f3> :set background=dark<cr>
+nmap <F4> :colorscheme solarized<cr>
+nmap <F5> :colorscheme molokai<cr>
 
 set guioptions-=m
 set guioptions-=T
