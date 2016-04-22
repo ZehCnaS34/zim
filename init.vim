@@ -54,6 +54,8 @@ Plugin 'davidhalter/jedi-vim'
 " web
 Plugin 'digitaltoad/vim-pug'
 
+" Note taking
+Plugin 'xolox/vim-notes'
 
 " Themes
 Plugin 'jnurmine/Zenburn'
@@ -114,7 +116,10 @@ nmap <F5> :colorscheme molokai<cr>
 set guioptions-=m
 set guioptions-=T
 " }}}
-" Editor "{{{
+" editor "{{{
+" Notes "{{{
+let g:notes_directories = ['~/Documents/Notes']
+" }}}
 " Tabs "{{{
 set tabstop=2
 set shiftwidth=2
@@ -171,7 +176,7 @@ end
 
 
 " playing nice with the terminal
-if !has("nvim")
+if !has("nvim") && !has("gui_running")
   set term=screen-256color
 end
 " }}}
