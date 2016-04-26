@@ -56,6 +56,7 @@ Plugin 'digitaltoad/vim-pug'
 
 " Note taking
 Plugin 'xolox/vim-notes'
+Plugin 'xolox/vim-misc'
 
 " Themes
 Plugin 'jnurmine/Zenburn'
