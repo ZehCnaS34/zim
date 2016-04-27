@@ -1,3 +1,4 @@
+#!/usr/bin/env julia
 # TODO: This install script thooo
 
 dotvim() = homedir() |> (hd) -> joinpath(hd, ".vim") 
