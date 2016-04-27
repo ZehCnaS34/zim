@@ -12,6 +12,6 @@ You should definitley get Julia. If not for this repo, then for Julia itself... 
 
 ### Installation
 
-```
-julia <(cure -L mygitrepo)
+``` shell
+curl -L  https://goo.gl/T6E5gl | julia 
 ```
