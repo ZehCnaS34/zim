@@ -17,6 +17,8 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+let mapleader=","
+
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -28,6 +30,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " Faster Editing and navigation
 Plugin 'majutsushi/tagbar'
+Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-sleuth.git' " pretty sure this is for better indenting.
 Plugin 'L9'
@@ -76,7 +79,7 @@ Plugin 'JuliaLang/julia-vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'rust-lang/rust.vim'
 Plugin 'aklt/plantuml-syntax'
-" Plugin 'pangloss/vim-javascript'
+Plugin 'kchmck/vim-coffee-script'
 Plugin 'othree/yajs.vim'
 
 
@@ -104,7 +107,7 @@ syntax enable
 " Style "{{{
 
 set background=light
-colorscheme solarized 
+colorscheme cake
 if has('gui_running')
   set guifont=Fira\ Mono\ 13
 endif	
@@ -184,13 +187,14 @@ end
 " }}}
 " Utility "{{{
 " some typeface introspection
-"nmap <S-_> :call <SID>SynStack()<CR>
+nmap <Leader>p :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
     return
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+
 " }}}
 " Misc "{{{
 " Procfile
