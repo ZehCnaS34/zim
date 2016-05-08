@@ -18,4 +18,10 @@ hi elixirAlias guifg=#ea88b9
 hi CursorLine guibg=#3e2c20
 hi LineNr guifg=#764d42
 hi CursorLineNr guifg=#5c6370
+hi Visual guibg=#483d35
+
+
+" Some JSON life
+hi jsonKeyword guifg=#fe728b
+hi jsonQuote guifg=#e55972
 
