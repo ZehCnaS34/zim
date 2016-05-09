@@ -26,6 +26,18 @@ hi jsonKeyword guifg=#fe728b
 hi jsonQuote guifg=#e55972
 
 
+" Python stuff
+hi pythonBuiltin guifg=#d99f81
+hi pythonConditional guifg=#c092ce
+hi pythonOperator guifg=#c092ce
+hi pythonStatement guifg=#c092ce
+hi pythonAttribute guifg=#fe728b
+hi link pythonException pythonStatement
+hi link pythonFunction pythonBuiltin
+hi link pythonExceptions pythonBuiltin
+hi link pythonRepeat pythonStatement
+
+
 "ColorColumn	used for the columns set with 'colorcolumn'
 							"*hl-Conceal*
 "Conceal		placeholder characters substituted for concealed
