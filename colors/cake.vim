@@ -36,6 +36,13 @@ hi link pythonException pythonStatement
 hi link pythonFunction pythonBuiltin
 hi link pythonExceptions pythonBuiltin
 hi link pythonRepeat pythonStatement
+hi link NonText LineNr
+
+hi NERDTreeCWD guifg=#ea88b9
+hi NERDTreeUp guifg=#d99f81
+hi NERDTreeDir guifg=#c092ce
+hi NERDTreeDirSlash guifg=#c092ce
+hi NERDTreeExecFile guifg=#ea88b9
 
 
 "ColorColumn	used for the columns set with 'colorcolumn'
