@@ -81,6 +81,7 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'aklt/plantuml-syntax'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'othree/yajs.vim'
+Plugin 'leafgarland/typescript-vim'
 
 
 " build tools
