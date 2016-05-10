@@ -8,6 +8,7 @@ let g:colors_name = "Cake"
 " This is a comment
 hi Normal guibg=#2e231b
 hi Normal guifg=#efeef1
+hi Operator guifg=#efeef1
 hi Comment guifg=#5c6370
 hi vimString guifg=#a56e5f
 hi vimLineComment guifg=#5c6370
@@ -19,6 +20,8 @@ hi CursorLine guibg=#3e2c20
 hi LineNr guifg=#764d42
 hi CursorLineNr guifg=#5c6370
 hi Visual guibg=#483d35
+
+hi vimHiGuiFgBg guifg=#d99f81
 
 
 " Some JSON life
@@ -43,6 +46,22 @@ hi NERDTreeUp guifg=#d99f81
 hi NERDTreeDir guifg=#c092ce
 hi NERDTreeDirSlash guifg=#c092ce
 hi NERDTreeExecFile guifg=#ea88b9
+hi NERDTreeHelp guifg=#fe728b
+hi NERDTreeHelpKey guifg=#c092ce
+
+" Vim
+hi vimHighlight guifg=#ea88b9
+hi vimHiGroup guifg=#c092ce
+hi vimHLGroup guifg=#efeef1
+
+hi vimVar guifg=#fe728b
+hi vimLet guifg=#c092ce
+hi link vimCommand vimLet
+hi link VimGroup vimHiGroup
+
+hi link vimSynType vimOption
+hi vimFuncName guifg=#d99f81
+
 
 
 "ColorColumn	used for the columns set with 'colorcolumn'
