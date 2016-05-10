@@ -75,7 +75,7 @@ Plugin 'kien/rainbow_parentheses.vim'
 " language Support
 Plugin 'guns/vim-clojure-static'
 Plugin 'lambdatoast/elm.vim'
-Plugin 'JuliaLang/julia-vim'
+Plugin 'ZehCnaS34/julia-vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'rust-lang/rust.vim'
 Plugin 'aklt/plantuml-syntax'
