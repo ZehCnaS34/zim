@@ -15,6 +15,7 @@ hi Repeat guifg=#fe728b
 hi Conditional guifg=#fe728b
 hi vimString guifg=#a56e5f
 hi vimLineComment guifg=#5c6370
+hi Type guifg=#d99f81
 hi elixirFunctionDeclaration guifg=#ea88b9
 hi elixirBlockDefinition guifg=#c092ce
 hi Define guifg=#c092ce
@@ -67,3 +68,10 @@ hi vimFuncName guifg=#d99f81
 hi link vimSynType Type
 
 hi juliaBlKeyword guifg=#d99f81
+
+hi markdownH1 guifg=#fe728b
+hi link markdownHeadingRule markdownH1 
+hi link markdownH2 markdownH1 
+hi link markdownH3 markdownH1 
+hi link markdownH4 markdownH1 
+
