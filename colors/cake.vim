@@ -25,8 +25,12 @@ hi LineNr guifg=#764d42
 hi CursorLineNr guifg=#5c6370
 hi Visual guibg=#483d35
 
-hi vimHiGuiFgBg guifg=#d99f81
 
+hi vimHiGuiFgBg guifg=#d99f81
+hi helpHyperTextJump guifg=#d99f81
+hi helpNotVi guifg=#d99f81
+hi helpSpecial guifg=#fe728b
+hi helpVim guifg=#e55972
 
 " Some JSON life
 hi jsonKeyword guifg=#fe728b
@@ -74,4 +78,6 @@ hi link markdownHeadingRule markdownH1
 hi link markdownH2 markdownH1 
 hi link markdownH3 markdownH1 
 hi link markdownH4 markdownH1 
+hi link markdownListMarker markdownH1 
+hi link markdownCodeDelimiter markdownH1 
 
