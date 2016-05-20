@@ -51,6 +51,8 @@ Plugin 'airblade/vim-gitgutter'
 " rails
 Plugin 'tpope/vim-rails'
 
+Plugin 'mxw/vim-jsx'
+
 " python
 Plugin 'davidhalter/jedi-vim'
 
@@ -80,9 +82,12 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'rust-lang/rust.vim'
 Plugin 'aklt/plantuml-syntax'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'othree/yajs.vim'
+"Plugin 'othree/yajs.vim'
+Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'Valloric/YouCompleteMe'
 
+let g:ycm_python_binary_path = '/usr/bin/python3'
 
 " build tools
 Plugin 'benekastah/neomake'
@@ -108,7 +113,7 @@ syntax enable
 " Style "{{{
 
 set background=light
-colorscheme cake
+colorscheme molokai
 if has('gui_running')
   set guifont=Fira\ Mono\ 13
 endif	
