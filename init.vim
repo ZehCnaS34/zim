@@ -1,16 +1,16 @@
-" __/\\\\\\\\\\\\\\\__/\\\\\\\\\\\__/\\\\____________/\\\\_        
-"  _\////////////\\\__\/////\\\///__\/\\\\\\________/\\\\\\_       
-"   ___________/\\\/_______\/\\\_____\/\\\//\\\____/\\\//\\\_      
-"    _________/\\\/_________\/\\\_____\/\\\\///\\\/\\\/_\/\\\_     
-"     _______/\\\/___________\/\\\_____\/\\\__\///\\\/___\/\\\_    
-"      _____/\\\/_____________\/\\\_____\/\\\____\///_____\/\\\_   
-"       ___/\\\/_______________\/\\\_____\/\\\_____________\/\\\_  
-"        __/\\\\\\\\\\\\\\\__/\\\\\\\\\\\_\/\\\_____________\/\\\_ 
+" __/\\\\\\\\\\\\\\\__/\\\\\\\\\\\__/\\\\____________/\\\\_
+"  _\////////////\\\__\/////\\\///__\/\\\\\\________/\\\\\\_
+"   ___________/\\\/_______\/\\\_____\/\\\//\\\____/\\\//\\\_
+"    _________/\\\/_________\/\\\_____\/\\\\///\\\/\\\/_\/\\\_
+"     _______/\\\/___________\/\\\_____\/\\\__\///\\\/___\/\\\_
+"      _____/\\\/_____________\/\\\_____\/\\\____\///_____\/\\\_
+"       ___/\\\/_______________\/\\\_____\/\\\_____________\/\\\_
+"        __/\\\\\\\\\\\\\\\__/\\\\\\\\\\\_\/\\\_____________\/\\\_
 "         _\///////////////__\///////////__\///______________\///__
 "
 " My vim configuration
 
-        
+
 
 
 " Vundle "{{{
@@ -68,6 +68,7 @@ Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jpo/vim-railscasts-theme'
 Plugin 'tomasr/molokai'
+Plugin 'hhsnopek/vim-firewatch'
 
 " clojure
 Plugin 'bhurlow/vim-parinfer'
@@ -82,7 +83,6 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'rust-lang/rust.vim'
 Plugin 'aklt/plantuml-syntax'
 Plugin 'kchmck/vim-coffee-script'
-"Plugin 'othree/yajs.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'Valloric/YouCompleteMe'
@@ -112,11 +112,11 @@ syntax enable
 " }}}
 " Style "{{{
 
-set background=light
-colorscheme molokai
+set background=dark
+colorscheme solarized
 if has('gui_running')
   set guifont=Fira\ Mono\ 13
-endif	
+endif
 
 nmap <f2> :set background=light<cr>
 nmap <f3> :set background=dark<cr>
@@ -209,3 +209,13 @@ autocmd BufNewFile,BufReadPost Procfile set filetype=ruby
 " atomish keybinding for nerdree
 nmap <c-\> :NERDTreeToggle<cr>
 " }}}
+"
+
+nmap <Leader>tt :tabe<cr>
+nmap <Leader>th :tabp<cr>
+nmap <Leader>tH :tabfirst<cr>
+nmap <Leader>tl :tabn<cr>
+nmap <Leader>tL :tablast<cr>
+nmap <Leader>tr :tabc<cr>
+
+
