@@ -1,9 +1,11 @@
 #!/usr/bin/env julia
 # TODO: This install script thooo
 
-dotvim() = homedir() |> (hd) -> joinpath(hd, ".vim") 
+dotvim() = homedir() |> (hd) -> joinpath(hd, ".vim")
+tmpdir() = homedir() |> (hd) -> joinpath(hd, ".tmp")
 
 hasdotvim = string(dotvim()) |> isdir 
+hastmpdir = string(dotvim()) |> isdir
 
 if hasdotvim
   println("Add extension to $dotvim()")
@@ -11,6 +13,10 @@ if hasdotvim
   println("Backing up Old Vim to $(dotvim() * ".backup")")
   cp(dotvim(), outputlocation)
   rm(dotvim(); recursive = true)
+end
+
+if !hastmpdir
+  mkdir(tmpdir())
 end
 
 # must make better
