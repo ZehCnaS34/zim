@@ -102,6 +102,7 @@ nmap <c-\> :NERDTreeToggle<cr>
 nmap <Leader>tH :tabfirst<cr>
 nmap <Leader>tL :tablast<cr>
 nmap <Leader>td :tabclose<cr>
+nmap <Leader>tD :tabclose!<cr>
 nmap <Leader>th :tabp<cr>
 nmap <Leader>tl :tabn<cr>
 nmap <Leader>tr :tabc<cr>
