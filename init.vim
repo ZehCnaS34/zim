@@ -40,10 +40,10 @@ Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'rking/ag.vim'
 Plug 'rust-lang/rust.vim'
-Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-sleuth'
@@ -132,11 +132,10 @@ nnoremap <Leader>ww <C-w>z
 
 nnoremap <Leader>/ :Lista<cr>
 
-if has('nvim')
-  let g:python3_host_prog = '/usr/bin/python'
-  let g:loaded_python3_provider = 1
-end
-
+" if has('nvim')
+"   let g:python3_host_prog = '/usr/bin/python'
+"   let g:loaded_python3_provider = 1
+" end
 
 " Personal functions
 function! <SID>SynStack()
