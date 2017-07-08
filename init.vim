@@ -13,13 +13,11 @@
 
 " set the runtime path to include Vundle and initialize
 call plug#begin('~/.local/share/nvim/plugged')
-" Plug 'L9'
 Plug 'Valloric/YouCompleteMe'
 Plug 'airblade/vim-gitgutter'
 Plug 'aklt/plantuml-syntax'
-Plug 'benekastah/neomake'
-Plug 'lambdalisue/lista.nvim'
 Plug 'altercation/vim-colors-solarized'
+Plug 'benekastah/neomake'
 Plug 'bhurlow/vim-parinfer'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'davidhalter/jedi-vim'
@@ -33,17 +31,19 @@ Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kchmck/vim-coffee-script'
 Plug 'kien/rainbow_parentheses.vim'
+Plug 'lambdalisue/lista.nvim'
 Plug 'lambdatoast/elm.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'majutsushi/tagbar'
 Plug 'mxw/vim-jsx'
+Plug 'morhetz/gruvbox'
 Plug 'pangloss/vim-javascript'
 Plug 'rking/ag.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tommcdo/vim-exchange'
-Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fireplace'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-sleuth'
@@ -59,10 +59,10 @@ if has('gui_running')
   set guifont=Fira\ Mono\ 13
 endif
 
-let g:solarized_termcolors = 256
+" let g:solarized_termcolors = 256
 " let g:solarized_termtrans = 1
 set background=dark
-colorscheme solarized
+colorscheme gruvbox
 
 set dir=~/.tmp
 set expandtab
@@ -131,16 +131,14 @@ nnoremap <Leader>ws <C-w>s
 nnoremap <Leader>wv <C-w>v
 nnoremap <Leader>ww <C-w>z
 
+" Lista
 nnoremap <Leader>/ :Lista<cr>
 
+" Quiting/Restarting
 nnoremap <Leader>qq :q<cr>
 nnoremap <Leader>qQ :qall<cr>
 
-" if has('nvim')
-"   let g:python3_host_prog = '/usr/bin/python'
-"   let g:loaded_python3_provider = 1
-" end
-
+"
 " Personal functions
 function! <SID>SynStack()
   if !exists("*synstack")
