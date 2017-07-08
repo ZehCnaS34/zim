@@ -125,9 +125,7 @@ nnoremap <Leader>wj <C-w>j
 nnoremap <Leader>wk <C-w>k
 nnoremap <Leader>wl <C-w>l
 
-
 nnoremap <Leader>/ :Lista<cr>
-
 
 if has('nvim')
   let g:python3_host_prog = '/usr/bin/python'
