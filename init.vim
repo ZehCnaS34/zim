@@ -109,6 +109,10 @@ nmap <Leader>tl :tabn<cr>
 nmap <Leader>tr :tabc<cr>
 nmap <Leader>tt :tabe<cr>
 
+" buffers
+nnoremap <Leader>bd :bdel<cr>
+nnoremap <Leader>bl :buffers<cr>
+
 " Configuration bindings
 nmap <Leader>Cr :so~/.config/nvim/init.vim<cr>
 nmap <Leader>Ce :e<space>~/.config/nvim/init.vim<cr>
