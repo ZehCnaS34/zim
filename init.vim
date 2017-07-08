@@ -10,175 +10,85 @@
 "
 " My vim configuration
 
-
-
-
-" Vundle "{{{
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-let mapleader=" "
 
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'L9'
+Plug 'Valloric/YouCompleteMe'
+Plug 'airblade/vim-gitgutter'
+Plug 'aklt/plantuml-syntax'
+Plug 'benekastah/neomake'
+Plug 'bhurlow/vim-parinfer'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'davidhalter/jedi-vim'
+Plug 'digitaltoad/vim-pug'
+Plug 'easymotion/vim-easymotion'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'elixir-lang/vim-elixir'
+Plug 'fatih/vim-go'
+Plug 'guns/vim-clojure-static'
+Plug 'honza/vim-snippets'
+Plug 'jiangmiao/auto-pairs'
+Plug 'kchmck/vim-coffee-script'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'lambdatoast/elm.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'majutsushi/tagbar'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'rking/ag.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'tommcdo/vim-exchange'
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+call plug#end()            " required
 
-" Plugins "{{{
-Plugin 'VundleVim/Vundle.vim'
-" Faster Editing and navigation
-Plugin 'majutsushi/tagbar'
-Plugin 'rking/ag.vim'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-sleuth.git' " pretty sure this is for better indenting.
-Plugin 'L9'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'tommcdo/vim-exchange'
-
-" git support
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'honza/vim-snippets'
-Plugin 'airblade/vim-gitgutter'
-
-" rails
-Plugin 'tpope/vim-rails'
-
-Plugin 'mxw/vim-jsx'
-
-" python
-Plugin 'davidhalter/jedi-vim'
-
-" web
-Plugin 'digitaltoad/vim-pug'
-
-" Note taking
-Plugin 'xolox/vim-notes'
-Plugin 'xolox/vim-misc'
-
-" Themes
-Plugin 'jnurmine/Zenburn'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'jpo/vim-railscasts-theme'
-Plugin 'tomasr/molokai'
-Plugin 'hhsnopek/vim-firewatch'
-
-" clojure
-Plugin 'bhurlow/vim-parinfer'
-Plugin 'tpope/vim-fireplace'
-Plugin 'kien/rainbow_parentheses.vim'
-
-" language Support
-Plugin 'guns/vim-clojure-static'
-Plugin 'lambdatoast/elm.vim'
-Plugin 'ZehCnaS34/julia-vim'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'rust-lang/rust.vim'
-Plugin 'aklt/plantuml-syntax'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'pangloss/vim-javascript'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'Valloric/YouCompleteMe'
-
+filetype plugin indent on    " required
 let g:ycm_python_binary_path = '/usr/bin/python3'
 
-" build tools
-Plugin 'benekastah/neomake'
-" }}}
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-set regexpengine=1
 syntax enable
-" }}}
-" Style "{{{
 
-set background=dark
-colorscheme solarized
+colorscheme gruvbox
 if has('gui_running')
   set guifont=Fira\ Mono\ 13
 endif
 
-nmap <f2> :set background=light<cr>
-nmap <f3> :set background=dark<cr>
-nmap <F4> :colorscheme solarized<cr>
-nmap <F5> :colorscheme molokai<cr>
-
-set guioptions-=m
-set guioptions-=T
-" }}}
-" editor "{{{
-" Notes "{{{
-let g:notes_directories = ['~/Documents/Notes']
-" }}}
-" Tabs "{{{
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set smartindent
-set expandtab
-" }}}
-" SwapFiles "{{{
-set swapfile
+set background=dark
 set dir=~/.tmp
-" }}}"
-" Ignoring Files "{{{
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*.png,*.jpg
-let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-      \ 'file': '\v\.(exe|so|dll)$',
-      \ }
-" }}}"
-" NeoVim "{{{
-if has('nvim')
-  let g:python3_host_prog = '/usr/bin/python'
-  let g:loaded_python3_provider = 1
-end
-" }}}
-" User Interface "{{{
+set expandtab
+set guioptions-=T
+set guioptions-=m
+set laststatus=2 cmdheight=2 ruler nu rnu ignorecase hlsearch magic noeb t_vb= tm=500
+set regexpengine=1
+set shiftwidth=2
+set smartindent
 set so=7
-set statusline=%t
-set statusline=%t       "tail of the filename
-set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
-set statusline+=%{&ff}] "file format
+set softtabstop=2
+set statusline+=%=      "left/right separator
+set statusline+=%c,     "cursor column
 set statusline+=%h      "help file flag
+set statusline+=%l/%L   "cursor line/total lines
 set statusline+=%m      "modified flag
 set statusline+=%r      "read only flag
 set statusline+=%y      "filetype
-set statusline+=%=      "left/right separator
-set statusline+=%c,     "cursor column
-set statusline+=%l/%L   "cursor line/total lines
+set statusline+=%{&ff}] "file format
+set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
 set statusline+=\P    "percent through file
-
-set laststatus=2
-set cmdheight=2
-set ruler
-set nu
-set rnu
-set ignorecase
-set hlsearch
-set magic
-set noeb t_vb=
-set tm=500
+set statusline=%t
+set statusline=%t       "tail of the filename
+set swapfile
+set tabstop=2
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*.png,*.jpg
 
 if has("gui_running")
   autocmd GUIEnter * set vb t_vb=
@@ -189,28 +99,13 @@ end
 if !has("nvim") && !has("gui_running")
   set term=screen-256color
 end
-" }}}
-" }}}
-" Utility "{{{
-" some typeface introspection
-nmap <Leader>p :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
 
-" }}}
-" Misc "{{{
-" Procfile
+
 autocmd BufNewFile,BufReadPost Procfile set filetype=ruby
 
-" atomish keybinding for nerdree
-nmap <c-\> :NERDTreeToggle<cr>
-" }}}
-"
+let mapleader=" "
 
+nmap <c-\> :NERDTreeToggle<cr>
 nmap <Leader>tt :tabe<cr>
 nmap <Leader>th :tabp<cr>
 nmap <Leader>tH :tabfirst<cr>
@@ -218,4 +113,21 @@ nmap <Leader>tl :tabn<cr>
 nmap <Leader>tL :tablast<cr>
 nmap <Leader>tr :tabc<cr>
 
+let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+      \ 'file': '\v\.(exe|so|dll)$',
+      \ }
+if has('nvim')
+  let g:python3_host_prog = '/usr/bin/python'
+  let g:loaded_python3_provider = 1
 
+end
+
+
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+nmap <Leader>p :call <SID>SynStack()<CR>
