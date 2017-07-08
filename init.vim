@@ -10,18 +10,15 @@
 "
 " My vim configuration
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-
 
 " set the runtime path to include Vundle and initialize
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'L9'
+" Plug 'L9'
 Plug 'Valloric/YouCompleteMe'
 Plug 'airblade/vim-gitgutter'
 Plug 'aklt/plantuml-syntax'
 Plug 'benekastah/neomake'
+Plug 'altercation/vim-colors-solarized'
 Plug 'bhurlow/vim-parinfer'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'davidhalter/jedi-vim'
@@ -54,15 +51,14 @@ Plug 'tpope/vim-unimpaired'
 call plug#end()            " required
 
 filetype plugin indent on    " required
-let g:ycm_python_binary_path = '/usr/bin/python3'
-
+set nocompatible              " be iMproved, required
 syntax enable
 
-colorscheme gruvbox
 if has('gui_running')
   set guifont=Fira\ Mono\ 13
 endif
 
+colorscheme solarized
 set background=dark
 set dir=~/.tmp
 set expandtab
@@ -90,16 +86,10 @@ set swapfile
 set tabstop=2
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*.png,*.jpg
 
-if has("gui_running")
-  autocmd GUIEnter * set vb t_vb=
-end
-
-
 " playing nice with the terminal
 if !has("nvim") && !has("gui_running")
-  set term=screen-256color
+  set term=xterm-256color
 end
-
 
 autocmd BufNewFile,BufReadPost Procfile set filetype=ruby
 
@@ -112,18 +102,19 @@ nmap <Leader>tH :tabfirst<cr>
 nmap <Leader>tl :tabn<cr>
 nmap <Leader>tL :tablast<cr>
 nmap <Leader>tr :tabc<cr>
+" Configuration
 
-let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-      \ 'file': '\v\.(exe|so|dll)$',
-      \ }
+
+nmap <Leader>gs :Gstatus<cr>
+
+
 if has('nvim')
   let g:python3_host_prog = '/usr/bin/python'
   let g:loaded_python3_provider = 1
-
 end
 
 
+" Personal functions
 function! <SID>SynStack()
   if !exists("*synstack")
     return
