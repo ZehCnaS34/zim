@@ -18,6 +18,7 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'airblade/vim-gitgutter'
 Plug 'aklt/plantuml-syntax'
 Plug 'benekastah/neomake'
+Plug 'lambdalisue/lista.nvim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'bhurlow/vim-parinfer'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -58,8 +59,11 @@ if has('gui_running')
   set guifont=Fira\ Mono\ 13
 endif
 
-colorscheme solarized
+let g:solarized_termcolors = 256
+" let g:solarized_termtrans = 1
 set background=dark
+colorscheme solarized
+
 set dir=~/.tmp
 set expandtab
 set guioptions-=T
@@ -86,10 +90,6 @@ set swapfile
 set tabstop=2
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*.png,*.jpg
 
-" playing nice with the terminal
-if !has("nvim") && !has("gui_running")
-  set term=xterm-256color
-end
 
 autocmd BufNewFile,BufReadPost Procfile set filetype=ruby
 
@@ -102,10 +102,31 @@ nmap <Leader>tH :tabfirst<cr>
 nmap <Leader>tl :tabn<cr>
 nmap <Leader>tL :tablast<cr>
 nmap <Leader>tr :tabc<cr>
-" Configuration
 
+" Configuration bindings
+nmap <Leader>Cr :so~/.config/nvim/init.vim<cr>
+nmap <Leader>Ce :e<space>~/.config/nvim/init.vim<cr>
 
+" cpanel
+nmap <Leader>cc :cclose<cr>
+
+" Fugitive Bindings
 nmap <Leader>gs :Gstatus<cr>
+nmap <Leader>gp :Gpush<cr>
+nmap <Leader>gf :Gpull<cr>
+
+" window
+nnoremap <Leader>ww <C-w>z
+nnoremap <Leader>wd <C-w>c
+nnoremap <Leader>wv <C-w>v
+nnoremap <Leader>ws <C-w>s
+nnoremap <Leader>wh <C-w>h
+nnoremap <Leader>wj <C-w>j
+nnoremap <Leader>wk <C-w>k
+nnoremap <Leader>wl <C-w>l
+
+
+nnoremap <Leader>/ :Lista<cr>
 
 
 if has('nvim')
