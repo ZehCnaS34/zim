@@ -71,6 +71,7 @@ set guioptions-=m
 set laststatus=2 cmdheight=2 ruler nu rnu ignorecase hlsearch magic noeb t_vb= tm=500
 set regexpengine=1
 set shiftwidth=2
+set mouse=a
 set smartindent
 set so=7
 set softtabstop=2
@@ -131,6 +132,9 @@ nnoremap <Leader>wv <C-w>v
 nnoremap <Leader>ww <C-w>z
 
 nnoremap <Leader>/ :Lista<cr>
+
+nnoremap <Leader>qq :q<cr>
+nnoremap <Leader>qQ :qall<cr>
 
 " if has('nvim')
 "   let g:python3_host_prog = '/usr/bin/python'
