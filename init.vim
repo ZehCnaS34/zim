@@ -89,6 +89,7 @@ set statusline=%t       "tail of the filename
 set swapfile
 set tabstop=2
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*.png,*.jpg
+set showtabline=2
 
 
 autocmd BufNewFile,BufReadPost Procfile set filetype=ruby
@@ -96,12 +97,15 @@ autocmd BufNewFile,BufReadPost Procfile set filetype=ruby
 let mapleader=" "
 
 nmap <c-\> :NERDTreeToggle<cr>
-nmap <Leader>tt :tabe<cr>
-nmap <Leader>th :tabp<cr>
+
+" Tab tweaks
 nmap <Leader>tH :tabfirst<cr>
-nmap <Leader>tl :tabn<cr>
 nmap <Leader>tL :tablast<cr>
+nmap <Leader>td :tabclose<cr>
+nmap <Leader>th :tabp<cr>
+nmap <Leader>tl :tabn<cr>
 nmap <Leader>tr :tabc<cr>
+nmap <Leader>tt :tabe<cr>
 
 " Configuration bindings
 nmap <Leader>Cr :so~/.config/nvim/init.vim<cr>
@@ -116,14 +120,14 @@ nmap <Leader>gp :Gpush<cr>
 nmap <Leader>gf :Gpull<cr>
 
 " window
-nnoremap <Leader>ww <C-w>z
 nnoremap <Leader>wd <C-w>c
-nnoremap <Leader>wv <C-w>v
-nnoremap <Leader>ws <C-w>s
 nnoremap <Leader>wh <C-w>h
 nnoremap <Leader>wj <C-w>j
 nnoremap <Leader>wk <C-w>k
 nnoremap <Leader>wl <C-w>l
+nnoremap <Leader>ws <C-w>s
+nnoremap <Leader>wv <C-w>v
+nnoremap <Leader>ww <C-w>z
 
 nnoremap <Leader>/ :Lista<cr>
 
