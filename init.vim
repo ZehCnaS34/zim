@@ -19,11 +19,6 @@ Plug 'aklt/plantuml-syntax'
 Plug 'altercation/vim-colors-solarized'
 Plug 'benekastah/neomake'
 Plug 'bhurlow/vim-parinfer'
-" Plug 'ctrlpvim/ctrlp.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-" Plug 'davidhalter/jedi-vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
@@ -32,14 +27,16 @@ Plug 'fatih/vim-go'
 Plug 'guns/vim-clojure-static'
 Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align'
 Plug 'kchmck/vim-coffee-script'
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'lambdalisue/lista.nvim'
 Plug 'lambdatoast/elm.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'majutsushi/tagbar'
-Plug 'mxw/vim-jsx'
 Plug 'morhetz/gruvbox'
+Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'rking/ag.vim'
 Plug 'rust-lang/rust.vim'
@@ -101,34 +98,39 @@ autocmd BufNewFile,BufReadPost Procfile set filetype=ruby
 let mapleader=" "
 
 nmap <c-\> :NERDTreeToggle<cr>
+nmap <m-\> :Tagbar<cr>
 
 nnore <C-p> :Files<space>.<cr>
+nnore <Leader>pf :Files<cr>
+nnore <Leader>pb :Buffers<cr>
+nnore <Leader>pl :Lines<cr>
+nnore <Leader>pt :Tags<cr>
 
 " Tab tweaks
-nmap <Leader>tH :tabfirst<cr>
-nmap <Leader>tL :tablast<cr>
-nmap <Leader>td :tabclose<cr>
-nmap <Leader>tD :tabclose!<cr>
-nmap <Leader>th :tabp<cr>
-nmap <Leader>tl :tabn<cr>
-nmap <Leader>tr :tabc<cr>
-nmap <Leader>tt :tabe<cr>
+nnore <Leader>tH :tabfirst<cr>
+nnore <Leader>tL :tablast<cr>
+nnore <Leader>td :tabclose<cr>
+nnore <Leader>tD :tabclose!<cr>
+nnore <Leader>th :tabp<cr>
+nnore <Leader>tl :tabn<cr>
+nnore <Leader>tr :tabc<cr>
+nnore <Leader>tt :tabe<cr>
 
 " buffers
 nnoremap <Leader>bd :bdel<cr>
 nnoremap <Leader>bl :buffers<cr>
 
 " Configuration bindings
-nmap <Leader>Cr :so~/.config/nvim/init.vim<cr>
-nmap <Leader>Ce :e<space>~/.config/nvim/init.vim<cr>
+nnore <Leader>Cr :so~/.config/nvim/init.vim<cr>
+nnore <Leader>Ce :e<space>~/.config/nvim/init.vim<cr>
 
 " cpanel
-nmap <Leader>cc :cclose<cr>
+nnore <Leader>cc :cclose<cr>
 
 " Fugitive Bindings
-nmap <Leader>gs :Gstatus<cr>
-nmap <Leader>gp :Gpush<cr>
-nmap <Leader>gf :Gpull<cr>
+nnore <Leader>gs :Gstatus<cr>
+nnore <Leader>gp :Gpush<cr>
+nnore <Leader>gf :Gpull<cr>
 
 " window
 nnoremap <Leader>wd <C-w>c
@@ -140,8 +142,10 @@ nnoremap <Leader>ws <C-w>s
 nnoremap <Leader>wv <C-w>v
 nnoremap <Leader>ww <C-w>z
 
+nnore <Leader>Tb :Tagbar<cr>
+
 " Lista
-nnoremap <Leader>/ :Lista<cr>
+nnoremap <Leader>/ :Lines<cr>
 
 " Quiting/Restarting
 nnoremap <Leader>qq :q<cr>
@@ -155,4 +159,4 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
-nmap <Leader>p :call <SID>SynStack()<CR>
+nnore [s :call <SID>SynStack()<CR>
