@@ -19,8 +19,11 @@ Plug 'aklt/plantuml-syntax'
 Plug 'altercation/vim-colors-solarized'
 Plug 'benekastah/neomake'
 Plug 'bhurlow/vim-parinfer'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'davidhalter/jedi-vim'
+" Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+" Plug 'davidhalter/jedi-vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
@@ -98,6 +101,8 @@ autocmd BufNewFile,BufReadPost Procfile set filetype=ruby
 let mapleader=" "
 
 nmap <c-\> :NERDTreeToggle<cr>
+
+nnore <C-p> :Files<space>.<cr>
 
 " Tab tweaks
 nmap <Leader>tH :tabfirst<cr>

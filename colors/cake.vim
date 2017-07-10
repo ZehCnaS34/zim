@@ -40,7 +40,7 @@ hi jsonQuote guifg=#e55972
 " Python stuff
 hi pythonBuiltin guifg=#d99f81
 hi pythonConditional guifg=#c092ce
-hi pythonOperator guifg=#c092ce
+hi pythonOperator guifg=#c092ce ctermfg=Blue
 hi pythonStatement guifg=#c092ce
 hi pythonAttribute guifg=#fe728b
 hi link pythonException pythonStatement
