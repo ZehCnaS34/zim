@@ -18,6 +18,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'aklt/plantuml-syntax'
 Plug 'altercation/vim-colors-solarized'
 Plug 'benekastah/neomake'
+Plug 'sjl/gundo.vim'
 Plug 'bhurlow/vim-parinfer'
 Plug 'digitaltoad/vim-pug'
 Plug 'easymotion/vim-easymotion'
@@ -38,6 +39,7 @@ Plug 'majutsushi/tagbar'
 Plug 'morhetz/gruvbox'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 Plug 'rking/ag.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree'
@@ -105,6 +107,9 @@ nnore <Leader>pf :Files<cr>
 nnore <Leader>pb :Buffers<cr>
 nnore <Leader>pl :Lines<cr>
 nnore <Leader>pt :Tags<cr>
+nnore <Leader>pc :Commands<cr>
+nnore <Leader>pa :Ag<space>
+
 
 " Tab tweaks
 nnore <Leader>tH :tabfirst<cr>
@@ -115,6 +120,10 @@ nnore <Leader>th :tabp<cr>
 nnore <Leader>tl :tabn<cr>
 nnore <Leader>tr :tabc<cr>
 nnore <Leader>tt :tabe<cr>
+
+" view maps
+nnore <Leader>vm :mkview<cr>
+nnore <Leader>vl :loadv<cr>
 
 " buffers
 nnoremap <Leader>bd :bdel<cr>
@@ -131,6 +140,7 @@ nnore <Leader>cc :cclose<cr>
 nnore <Leader>gs :Gstatus<cr>
 nnore <Leader>gp :Gpush<cr>
 nnore <Leader>gf :Gpull<cr>
+nnore <Leader>gc :Commits<cr>
 
 " window
 nnoremap <Leader>wd <C-w>c
@@ -150,6 +160,7 @@ nnoremap <Leader>/ :Lines<cr>
 " Quiting/Restarting
 nnoremap <Leader>qq :q<cr>
 nnoremap <Leader>qQ :qall<cr>
+nnoremap ,m :Neomake<cr>
 
 "
 " Personal functions
@@ -160,3 +171,11 @@ function! <SID>SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 nnore [s :call <SID>SynStack()<CR>
+
+
+" jsx configuration
+let g:jsx_ext_required = 0
+
+
+" autocmd BufWinLeave *.* mkview!
+" autocmd BufWinEnter *.* silent loadview
