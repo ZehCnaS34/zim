@@ -97,11 +97,16 @@ set showtabline=2
 
 autocmd BufNewFile,BufReadPost Procfile set filetype=ruby
 
+function! g:CleanTemps()
+  execute "!" . "rm -rf ~/.tmp/*.swp"
+endfunction
+
 let mapleader=" "
 
 nmap <c-\> :NERDTreeToggle<cr>
 nmap <m-\> :Tagbar<cr>
 
+nnore <Leader><Leader> :Commands<cr>
 nnore <C-p> :Files<space>.<cr>
 nnore <Leader>pf :Files<cr>
 nnore <Leader>pb :Buffers<cr>
@@ -120,6 +125,9 @@ nnore <Leader>th :tabp<cr>
 nnore <Leader>tl :tabn<cr>
 nnore <Leader>tr :tabc<cr>
 nnore <Leader>tt :tabe<cr>
+
+" Vim
+nnore <Leader>Tc :call<space>CleanTemps()<cr>
 
 " view maps
 nnore <Leader>vm :mkview<cr>
@@ -179,3 +187,4 @@ let g:jsx_ext_required = 0
 
 " autocmd BufWinLeave *.* mkview!
 " autocmd BufWinEnter *.* silent loadview
+
