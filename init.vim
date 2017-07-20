@@ -8,10 +8,7 @@
 "        __/\\\\\\\\\\\\\\\__/\\\\\\\\\\\_\/\\\_____________\/\\\_
 "         _\///////////////__\///////////__\///______________\///__
 "
-" My vim configuration
-
-
-" set the runtime path to include Vundle and initialize
+" Plugins
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Valloric/YouCompleteMe'
 Plug 'airblade/vim-gitgutter'
@@ -53,19 +50,17 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 call plug#end()            " required
 
-filetype plugin indent on    " required
-set nocompatible              " be iMproved, required
+" Syntax
+filetype plugin indent on
 syntax enable
-
-if has('gui_running')
-  set guifont=Fira\ Mono\ 13
-endif
-
-" let g:solarized_termcolors = 256
-" let g:solarized_termtrans = 1
 set background=dark
 colorscheme gruvbox
 
+" Setters
+set nocompatible
+if has('gui_running')
+  set guifont=Fira\ Mono\ 13
+endif
 set dir=~/.tmp
 set expandtab
 set guioptions-=T
@@ -94,15 +89,14 @@ set tabstop=2
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*.png,*.jpg
 set showtabline=2
 
+" lets
+let mapleader=" "
+let g:jsx_ext_required = 0
 
+" Autocommands
 autocmd BufNewFile,BufReadPost Procfile set filetype=ruby
 
-function! g:CleanTemps()
-  execute "!" . "rm -rf ~/.tmp/*.swp"
-endfunction
-
-let mapleader=" "
-
+" Maps
 nmap <c-\> :NERDTreeToggle<cr>
 nmap <m-\> :Tagbar<cr>
 
@@ -170,21 +164,16 @@ nnoremap <Leader>qq :q<cr>
 nnoremap <Leader>qQ :qall<cr>
 nnoremap ,m :Neomake<cr>
 
-"
-" Personal functions
+nnore [s :call <SID>SynStack()<CR>
+
+" functions
 function! <SID>SynStack()
   if !exists("*synstack")
     return
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
-nnore [s :call <SID>SynStack()<CR>
 
-
-" jsx configuration
-let g:jsx_ext_required = 0
-
-
-" autocmd BufWinLeave *.* mkview!
-" autocmd BufWinEnter *.* silent loadview
-
+function! g:CleanTemps()
+  execute "!" . "rm -rf ~/.tmp/*.swp"
+endfunction
